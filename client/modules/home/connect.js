@@ -5,107 +5,24 @@ var ctrl = {};
 //CTRL
 signup.controller = function() {
 
-	auth.isLoggedIn(function(isLoggedIn) {
-		console.log("connect1111",isLoggedIn)
-		ctrl.login=1
-		if (isLoggedIn) {
+	// auth.isLoggedIn(function(isLoggedIn) {
+	// 	console.log("connect1111",isLoggedIn)
+	// 	ctrl.login=1
+	// 	if (isLoggedIn) {
 			
-			m.route('/dashboard')
-		}
-			});
+	// 		//m.route('/dashboard')
+	// 	}
+	// 		});
 	
 
 
-	ctrl.googleTokens = m.prop(false);
-	ctrl.GoogleClick = m.prop();
+	
 	ctrl.ErrorMsg = m.prop("");
 	ctrl.firstname = m.prop("");
 		ctrl.lastname = m.prop("");
 		ctrl.password = m.prop("");
 		ctrl.email_id = m.prop("");
 
-/*
-
-	ctrl.LoadGOne = function(element) {
-		var elem = jQuery(element);
-		var button = (elem.find("button.google.plus"));
-
-
-		var script = document.createElement('script');
-		script.src = "https://plus.google.com/js/client:plusone.js";
-		script.onload = function() {
-
-			gapi.load('auth2', function() {
-				gapi.auth2.init({
-					client_id: '905249695279-seq2aus8mnd40i3a9bo21truglfgktpk.apps.googleusercontent.com',
-					cookiepolicy: 'single_host_origin',
-					fetch_basic_profile: false,
-					scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.signup'
-				}).then(function() {
-
-					console.log("Google + init")
-
-					auth2 = gapi.auth2.getAuthInstance();
-
-					ctrl.GoogleClick = function() {
-
-						ctrl.ErrorMsg = m.prop();
-
-						button.addClass('loading');
-
-						auth2
-							.signIn()
-							.then(function(googleUser) {
-
-								button.removeClass('loading');
-
-								ctrl.googlesignup();
-
-								ctrl.googleTokens = m.prop(googleUser);
-
-								m.redraw(true);
-
-							}, function(error) {
-								elem.addClass('error');
-								ctrl.ErrorMsg = m.prop("Something wrong happened! Try again, perhaps?");
-								button.removeClass('loading');
-								m.redraw(true);
-								console.log(error);
-							});
-
-					};
-
-					//right after auth initiated
-					auth2.then(function() {
-						//redraw for onclick
-						m.redraw(true);
-
-						button.removeClass('loading');
-
-					});
-
-				});
-			});
-		};
-
-		document.head.appendChild(script);
-	}*/
-/*
-	ctrl.googlesignup = function() {
-
-		m
-			.request({
-				method: "POST",
-				url: m.urls("user"),
-				data: gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse()
-			})
-			.then(function(data) {
-				console.log("data", data);
-				auth.setSession(data.token);
-				m.route("/dashboard");
-			});
-
-	};*/
 	ctrl.Validate = function(elem) {
 		m.startComputation();
 		console.log("jQuery(elem)",jQuery(elem))
@@ -295,7 +212,7 @@ signup.form = function(ctrl) {
 
 signup.view = function(ctrl) {
 
-	return((ctrl.login) ?  signup.form(ctrl) : require('module/loader'))
+	return signup.form(ctrl) 
 }
 
 

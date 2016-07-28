@@ -5,14 +5,14 @@ var ctrl = {};
 //CTRL
 signup.controller = function() {
 
-	auth.isLoggedIn(function(isLoggedIn) {
-		console.log("connect1111",isLoggedIn)
-		ctrl.login=1
-		if (isLoggedIn) {
+	// auth.isLoggedIn(function(isLoggedIn) {
+	// 	console.log("connect1111",isLoggedIn)
+	// 	ctrl.login=1
+	// 	if (isLoggedIn) {
 			
-			//m.route('/dashboard')
-		}
-			});
+	// 		//m.route('/dashboard')
+	// 	}
+	// 		});
 	
 
 
@@ -212,7 +212,7 @@ signup.form = function(ctrl) {
 
 signup.view = function(ctrl) {
 
-	return((ctrl.login) ?  signup.form(ctrl) : require('module/loader'))
+	return signup.form(ctrl) 
 }
 
 

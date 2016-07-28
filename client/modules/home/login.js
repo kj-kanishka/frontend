@@ -7,15 +7,14 @@ login.loaded = m.prop(false);
 var ctrl = {};
 //CTRL
 login.controller = function() {
-	$('').modal('hide');
 
-	auth.isLoggedIn(function(isLoggedIn) {
-		ctrl.login=1;
-		if (isLoggedIn) {
+	// auth.isLoggedIn(function(isLoggedIn) {
+	// 	ctrl.login=1;
+	// 	if (isLoggedIn) {
 			
-			m.route('/dashboard')
-		}
-	});
+	// 		m.route('/dashboard')
+	// 	}
+	// });
 	ctrl.ErrorMsg=m.prop("");
 	ctrl.email_id = m.prop("");
 		ctrl.password = m.prop("");
@@ -164,7 +163,7 @@ login.form = function(ctrl) {
 		     "Forget Password? ", {tag: "a", attrs: {config:m.route, href:"/forget"}, children: ["reset password"]}
 		    ]}, 
 		    {tag: "div", attrs: {class:"ui message"}, children: [
-		      "New to us? ", {tag: "a", attrs: {config:m.route, href:"/connect"}, children: ["signup"]}
+		      "New to us? ", {tag: "a", attrs: {config:m.route, href:"/signup"}, children: ["signup"]}
 		    ]}
 		  ]}
 		]}
@@ -172,7 +171,7 @@ login.form = function(ctrl) {
 }
 
 login.view = function(ctrl) {
-	return((ctrl.login) ?  login.form(ctrl) : require('module/loader'))
+	return login.form(ctrl) 
 }
 
 

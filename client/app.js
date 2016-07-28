@@ -36,7 +36,7 @@ m.fadesOutPage = function(element, isInitialized, context) {
 
 
 
-var api = 'http://admin.livetest.io'
+var api = 'http://localhost:3000'
 
 
 m.urls = function(theClass, theObject, action) {

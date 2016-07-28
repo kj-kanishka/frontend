@@ -13,7 +13,7 @@ HomePage.controller = function(){
 			m.route('/dashboard')
 		}
 		else
-			m.route("/connect");
+			m.route("/signup");
 	});
 
 	return {
